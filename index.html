@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+.letter p {
+    font-size: 12px !important;
+    text-align: justify;
+}
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff7a9e,#ff9ac3);
+    font-family:'Poppins',sans-serif;
+}
+
+.hidden{display:none}
+
+/* CONTAINER UMUM */
+.container{
+    background:white;
+    border-radius:32px;
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+    text-align:center;
+}
+
+/* STEP 1 */
+#step1{
+    width:360px;
+    padding:30px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid #ddd;
+    font-size:16px;
+    margin-top:10px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:18px;
+    border:none;
+    border-radius:14px;
+    background:#ff4d6d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{opacity:.9}
+
+/* STEP 2 (HALAMAN BESAR) */
+#step2{
+    width:90vw;
+    max-width:900px;
+    min-height:80vh;
+    padding:50px 40px;
+    background:linear-gradient(180deg,#fff,#fff0f5);
+}
+
+#step2 p{
+    font-size:1.1rem;
+    margin-bottom:25px;
+}
+
+/* JUDUL BESAR */
+h1{
+    font-family:'Playfair Display',serif;
+    color:#ff4d6d;
+    font-size:3.2rem;
+    margin-bottom:15px;
+}
+
+/* AMPL0P BESAR */
+.envelope{
+    aspect-ratio: 5 / 3;
+    width:60vw;
+    max-width:600px;
+    height:auto;
+    margin:40px auto;
+    position:relative;
+    border-radius:24px;
+    background:#ff4d6d;
+    cursor:pointer;
+    box-shadow:0 20px 45px rgba(0,0,0,.3);
+    overflow:hidden;
+    z-index: 1;
+}
+
+/* flap */
+.envelope .flap{
+    aspect-ratio: 5 / 3;
+    height: auto;
+    position:absolute;
+    inset:0;
+    background:#ff6b81;
+    clip-path:polygon(0 0,100% 0,50% 45%);
+    transition:.7s ease;
+    z-index:2;
+}
+
+/* surat */
+.letter{
+    aspect-ratio: 5 / 3;
+    position:absolute;
+    left:50%;
+    bottom:30px;
+    width:90%;
+    max-width:520px;
+    height:auto;
+    background:white;
+    border-radius:24px;
+    padding:28px;
+    overflow-y: hidden;
+
+    transform:
+        translate(-50%, 160px)
+        scale(0.9);
+
+    opacity:0;
+    transition: 
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        opacity .6s ease;
+
+    z-index:10;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+/* buka */
+.envelope.open .letter{
+    transform:
+        translate(-50%, 10px)
+        scale(1.05);
+    transition-timing-function:
+        cubic-bezier(.25,.9,.3,1.1);
+    opacity:1;
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+    transform-origin:top;
+}
+
+/* FOTO */
+#step3{
+    width:420px;
+    padding:30px;
+}
+
+.photos{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin:20px 0;
+}
+
+.photos img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+#closingScreen{
+    width:420px;
+    padding:40px;
+    animation:fadeIn 1.5s ease;
+}
+
+#closingScreen h1{
+    font-size:2.8rem;
+    margin-bottom:15px;
+}
+
+#closingScreen p{
+    font-size:1.2rem;
+    opacity:.85;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    h1{font-size:2.2rem}
+    .envelope{
+        width:90vw;
+        height:280px;
+    }
+    .letter{
+        height:220px;
+    }
+    #step2{
+        padding:30px 20px;
+    }
+
+@media (max-width: 600px){
+
+    /* container step 2 */
+    #step2{
+        width: 95vw;
+        min-height: auto;
+        padding: 30px 15px;
+    }
+
+    /* judul */
+    h1{
+        font-size: 1.9rem;
+        line-height: 1.2;
+        word-break: break-word;
+    }
+
+    /* amplop */
+    .envelope{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 5/3;
+        margin: 25px auto;
+    }
+
+    /* flap amplop */
+    .envelope .flap{
+        clip-path: polygon(0 0,100% 0,50% 40%);
+    }
+
+    /* surat */
+    .letter{
+        width: 92%;
+        height: 85%;
+        bottom: 23px;
+        padding: 18px;
+        font-size: 13px;
+        overflow: auto;
+    }
+
+    /* tombol foto */
+    #photoBtn{
+        font-size: 14px;
+        padding: 12px;
+    }
+
+}
+
+
+@media (min-width: 601px) and (max-width: 1024px){
+
+    h1{
+        font-size: 2.4rem;
+    }
+
+    .envelope{
+        width: 70vw;
+        height: 300px;
+    }
+
+    .letter{
+        height: 260px;
+    }
+
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- STEP 1 -->
+<div class="container" id="step1">
+    <h2>Ketik Nama</h2>
+    <form onsubmit="goToEnvelope(); return false;">
+        <input id="nameInput" placeholder="Nama kamu..." />
+        <button type="submit">For You</button>
+    </form>
+</div>
+
+<!-- STEP 2 -->
+<div class="container hidden" id="step2">
+    <h1 id="title"></h1>
+    <p>Klik amplopnya 💌</p>
+
+    <div class="envelope" id="envelope" onclick="openLetter()">
+        <div class="flap"></div>
+
+        <div class="letter">
+            <p>
+                Hai sayangg, waktu itu aku ngomong mau buatin web kan buat kamu ini sudah aku buat hihii.
+                Ngga kerasaa yaa sayangg kita udahh ngejalaninn ini lumayann lama 8 bulan. Kita kenal emang udah lama tapii kan kita baru ngejalanin hubungannya baru segitu.
+                Aku cuman bisa berharap kalau kita bakalan sampe kapanpun itu bakal barengan terus. Ketemu kamu adalah suatu hal yang special buat aku.
+                Aku tauu kok web ini jugaa cumann web biasa gaa yang heboh yang buatnya juga gampang apalagi kita anak informatika.
+                Terimakasihh yaaa sayangg kamu sudahh mauu bareng-bareng terus sama aku sampe sekarang.
+                Maaff yaa sayangg aku cuman bisa ngasih kamu ini. Aku cuman pengenn ngebuat hal simple tapii bisa dikenang teruss.. 
+                Happy Valentine Sayanggkuu Meisa Naifa Rahmah.
+            </p>
+            <h3> I LOVEE UU SO MUCHH </h3>
+        </div>
+    </div>
+
+    <button id="photoBtn" class="hidden" onclick="goToPhotos()">Photos 📸</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="container hidden" id="step3">
+    <h1>Kenangan Kita</h1>
+
+    <div class="photos">
+        <img src="photo (1).jpeg" alt="Foto 1">
+        <img src="photo (2).jpeg" alt="Foto 2">
+        <img src="photo (4).jpeg" alt="Foto 3">
+        <img src="photo (3).jpeg" alt="Foto 4">
+    </div>
+</div>
+
+<!-- CLOSING SCREEN -->
+<div class="container hidden" id="closingScreen">
+    <h1>Thank You Sayangg</h1>
+    <p>Terima kasih sudah mau menjadi bagian dari cerita aku</p>
+    <p>I Love You ❤️</p>
+</div>
+
+<!-- MUSIC -->
+<audio id="bgMusic"></audio>
+
+<script>
+const musicStep2 = "Song (1).mp4";
+const musicStep3 = "Song (2).mp4";
+let opened=false;
+
+function changeMusic(song){
+    bgMusic.pause();
+    bgMusic.src = song;
+    bgMusic.currentTime = 0;
+    bgMusic.play();
+}
+
+function goToEnvelope(){
+    const name=nameInput.value.trim();
+    if(!name) return alert('Masukan nama terlebih dahulu');
+    title.innerText=`Happy Valentine ${name} ❤️`;
+    step1.classList.add('hidden');
+    step2.classList.remove('hidden');
+}
+
+function openLetter(){
+    if(opened) return;
+    opened=true;
+
+    envelope.classList.add('open');
+    photoBtn.classList.remove('hidden');
+
+    bgMusic.currentTime=0;
+    changeMusic(musicStep2);
+}
+
+function goToPhotos(){
+    step2.classList.add('hidden');
+    step3.classList.remove('hidden');
+    changeMusic(musicStep3);
+}
+
+function resetApp(){
+
+    closingScreen.classList.add('hidden');
+
+    step3.classList.add('hidden');
+    step1.classList.remove('hidden');
+
+    envelope.classList.remove('open');
+    photoBtn.classList.add('hidden');
+    nameInput.value='';
+    opened=false;
+}
+
+function showClosing(){
+
+    step3.classList.add('hidden');
+    closingScreen.classList.remove('hidden');
+
+    // balik ke awal setelah 4 detik
+    setTimeout(()=>{
+        closingScreen.classList.add('hidden');
+        resetApp();
+    },10000);
+}
+
+bgMusic.addEventListener("ended", function(){
+
+    if(!step3.classList.contains("hidden")){
+        setTimeout(()=>{
+            showClosing();
+        },500);
+    }
+
+});
+
+</script>
+
+</body>
+</html>
